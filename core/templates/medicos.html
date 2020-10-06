@@ -1,0 +1,26 @@
+{% extends 'base/base.html' %}
+{% block content %}
+<h1>Medicos</h1>
+<table class="table" id="medicos-table">
+    <thead>
+    <tr>
+        <th>Nombre</th>
+        <th>Apellidos</th>
+        <th>Direccion</th>
+        <th>telefono</th>
+        <th>Salario</th>
+        <th>Experiencia</th>
+        <th>Especialidad</th>
+        <th>Foto</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% include 'core/includes/lista_medicos.html %}
+
+    </tbody>
+
+
+</table>
+
+
+{%% endblock}

@@ -1,0 +1,46 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block javascript %}
+    <script src = "{% static 'js/medicos.js' %}"></script>
+{% endblock %}
+
+
+{% block content %}
+<h1 class="page-header">Medicos</h1>
+
+<p>
+    <button type="button"
+            class ="btn btn-primary js-create-medicos"
+            data-url="{% url 'medicos_create' %}">
+        <span class="glyphicon glyphicon-plus"></span>
+        Nuevo Medico
+    </button>
+</p>
+
+<table class="table" id="medicos-table">
+    <thead>
+    <tr>
+        <th>Nombre</th>
+        <th>Apellidos</th>
+        <th>Telefono</th>
+        <th>Direccion</th>
+        <th>Salario</th>
+        <th>Especialidad</th>
+        <th>Foto</th>
+    </tr>
+    </thead>
+    <tbody>
+       {% include 'includes/lista_medicos.html' %}
+    </tbody>
+</table>
+
+<!--Este modal lo usare para agregar nuevos medicos y editar los mismos-->
+<div class="modal fade" id="modal-medicos">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        </div>
+    </div>
+</div>
+
+{% endblock %}

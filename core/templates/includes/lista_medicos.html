@@ -1,0 +1,33 @@
+{% for medico in medicos %}
+<tr>
+    <td> {{medico.nombre}}</td>
+    <td> {{medico.apellidos}}</td>
+    <td> {{medico.telefono}}</td>
+    <td> {{medico.direccion}}</td>
+    <td> {{medico.salario}}</td>
+    <td> {{medico.get_especialidad_display }}</td>
+    {% if medico.foto %}
+    <td> <img src={{medico.foto.url}} width="100"></td>
+    {% endif %}
+
+    <td>
+        <button type="button"
+                class ="btn btn-warning btn-sm js-update-medicos"
+            data-url="{% url 'medicos_update' medico.id %}">
+           <span class="glyphicon glyphicon-pencil"></span>Editar
+        </button>
+          <button type="button"
+                class ="btn btn-danger btn-sm  js-delete-medicos"
+            data-url="{% url 'medicos_delete' medico.id %}">>
+           <span class="glyphicon glyphicon-trash"></span>Eliminar
+        </button>
+    </td>
+</tr>
+{% empty %}
+<tr>
+    <td colspan="8" class="text-center bg-warning">
+        No hay medicos
+    </td>
+</tr>
+
+{% endfor %}
